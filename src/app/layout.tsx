@@ -23,12 +23,8 @@ export default function RootLayout({ children }: Readonly<{
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className={"bg-red-500 text-white font-bold text-[32px]"}>
-          POCETAK
-        </div>
-        {children}
-        <div className={"bg-red-500 text-white font-bold text-[32px]"}>
-          KRAJ
+        <div className="py-12">
+          {children}
         </div>
       </body>
     </html>
