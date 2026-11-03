@@ -1,0 +1,1 @@
+ALTER TABLE "attempts" RENAME COLUMN "attampted_at" TO "attempted_at";

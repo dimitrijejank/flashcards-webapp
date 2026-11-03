@@ -8,6 +8,20 @@
       "when": 1793197873409,
       "tag": "0000_complete_maestro",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793721103817,
+      "tag": "0001_clammy_alice",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793721347919,
+      "tag": "0002_supreme_white_queen",
+      "breakpoints": true
     }
   ]
 }
