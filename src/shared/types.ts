@@ -1,15 +1,15 @@
 export interface FullSubjectDto {
-    id: number;
+    id: string;
     name: string;
     createdAt: Date;
 }
 
 export interface FullDeckDto {
-    id: number;
+    id: string;
     name: string;
     createdAt: Date;
     subject: {
-        id: number;
+        id: string;
         name: string;
         createdAt: Date;
     }

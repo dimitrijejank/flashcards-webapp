@@ -5,8 +5,8 @@ import { FullSubjectDto } from "@/shared/types";
 type Props = {
     search: string;
     setSearch: (value: string) => void;
-    subjectId: number | null;
-    setSubjectId: (value: number | null) => void;
+    subjectId: string | null;
+    setSubjectId: (subjectId: string | null) => void;
     subjects: FullSubjectDto[];
 }
 
@@ -19,6 +19,14 @@ export default function Sidebar({search, setSearch, subjectId, setSubjectId, sub
                     className="w-full rounded border border-gray-200 px-3 py-2"
                     value={search} onChange={(e) => setSearch(e.target.value)}
                      />
+
+                {/* Dugme za novi spil */}
+                <Link href="/deck-create" 
+                    className="inline-flex items-center justify-center rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+                >
+                    + Napravi spil
+                </Link>
+
                 {/* Dugme koje vodi na crate deck stranicu */}
                 <div className="flex flex-wrap gap-2 md:flex-col">
                     <FilterBtn active={subjectId === null}
@@ -26,9 +34,11 @@ export default function Sidebar({search, setSearch, subjectId, setSubjectId, sub
                             Svi predmeti
                         </FilterBtn>
                         {subjects.map((s) => (
-                            <FilterBtn key={s.id}
+                            <FilterBtn
+                                key={s.id}
                                 active={subjectId === s.id}
-                                handleClick={() => setSubjectId(s.id)}>
+                                handleClick={() => setSubjectId(s.id)}
+                            >
                                 {s.name}
                             </FilterBtn>
                         ))}
