@@ -6,7 +6,7 @@ export interface SubjectDto {
     name: string;
 }
 
-export const GET = async(request: Request) => {
+export async function GET(req: Request) {
     const subjectsDto = await db
         .select({
             id: subjects.id,
@@ -16,3 +16,4 @@ export const GET = async(request: Request) => {
         .orderBy(subjects.name);
     return Response.json(subjectsDto);
 };
+

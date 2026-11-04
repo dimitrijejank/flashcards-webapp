@@ -33,7 +33,9 @@ export const flashCards = pgTable("flash_cards", {
 export const attempts = pgTable("attempts", {
     id: uuid("id").primaryKey().defaultRandom(),
     deckId: uuid("deck_id").references(() => decks.id).notNull(),
-    attemptedAt: timestamp("attempted_at").defaultNow()
+    attemptedAt: timestamp("attempted_at").defaultNow(),
+    //dodato za GET u attempt API
+    userId: uuid("user_id").references(() => users.id).notNull()
 });
 
 export const attemptCards = pgTable("attempt_cards", {

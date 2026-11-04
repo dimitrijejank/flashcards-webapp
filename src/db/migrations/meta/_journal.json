@@ -22,6 +22,13 @@
       "when": 1793721347919,
       "tag": "0002_supreme_white_queen",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793799038028,
+      "tag": "0003_empty_human_cannonball",
+      "breakpoints": true
     }
   ]
 }
