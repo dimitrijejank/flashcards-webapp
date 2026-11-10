@@ -109,10 +109,10 @@ export default function PracticeClient({
                             <GradeBtn color="red" onClick={() => chooseGrade(0)}>
                                 Nisam znao
                             </GradeBtn>
-                            <GradeBtn color="red" onClick={() => chooseGrade(0)}>
+                            <GradeBtn color="yellow" onClick={() => chooseGrade(0)}>
                                 Delimicno
                             </GradeBtn>
-                            <GradeBtn color="red" onClick={() => chooseGrade(0)}>
+                            <GradeBtn color="green" onClick={() => chooseGrade(0)}>
                                 Znao sam
                             </GradeBtn>
                         </div>

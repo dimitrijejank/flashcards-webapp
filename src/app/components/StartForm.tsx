@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, use, useState } from "react";
+import React, { useState } from "react";
 
 type Props = {
     deckId: string;
@@ -16,7 +16,7 @@ export const StartForm = ({deckId,cardsCount}: Props) => {
     const [secsPerCard, setSecsPerCard] = useState(45);
     const router = useRouter();    
 
-    const start = (e: FormEvent) => {
+    const start = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const realN = useAll ? 0 : num;
@@ -26,7 +26,7 @@ export const StartForm = ({deckId,cardsCount}: Props) => {
         if(realN > 0) params.set("cardCount", String(realN));
         params.set("minutes", String(totalMin));
 
-        router.push(`/decks/${deckId}/practitce?${params.toString()}`);
+        router.push(`/decks/${deckId}/practice?${params.toString()}`);
     };
 
     return (
@@ -57,7 +57,7 @@ export const StartForm = ({deckId,cardsCount}: Props) => {
             </div>
 
             <div className="flex flex-col gap-1">
-                <label className="font-medum">Vreme po kartici (sekunde)</label>
+                <label className="font-medium">Vreme po kartici (sekunde)</label>
                 <input 
                     type="number"
                     min={10}
@@ -72,15 +72,14 @@ export const StartForm = ({deckId,cardsCount}: Props) => {
                     Zapocni vezbu
                 </button>
 
-                <button
-                    className="rounded cursor-pointer bg-red-500 px-6 py-2 text-white font-medium hover:bg-red-600">
-                    <Link   
-                        href={"/"}
-                        className="rounded cursor pointer text-white px-6 py-2 font-medium"
-                    >
-                        Odusatni
-                    </Link>
-                </button>
+                
+                <Link   
+                    href={"/"}
+                    className="rounded cursor pointer text-red-500 px-6 py-2 font-medium"
+                >
+                    Odustani
+                </Link>
+                
                 
             </div>
         </form>
