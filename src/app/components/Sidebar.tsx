@@ -8,9 +8,10 @@ type Props = {
     subjectId: string | null;
     setSubjectId: (subjectId: string | null) => void;
     subjects: FullSubjectDto[];
+    isLoggedIn: boolean;
 }
 
-export default function Sidebar({search, setSearch, subjectId, setSubjectId, subjects}: Props) {
+export default function Sidebar({search, setSearch, subjectId, setSubjectId, subjects, isLoggedIn}: Props) {
     return (
         <aside className="w-full md:w-62 shrink-0">
             <div className="flex flex-col gap-4 md:sticky md:top-20">
@@ -21,11 +22,14 @@ export default function Sidebar({search, setSearch, subjectId, setSubjectId, sub
                      />
 
                 {/* Dugme za novi spil */}
-                <Link href="/deck-create" 
-                    className="inline-flex items-center justify-center rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
-                >
-                    + Napravi spil
-                </Link>
+                {isLoggedIn ? (
+                    <Link href="/deck-create" 
+                        className="inline-flex items-center justify-center rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+                    >
+                        + Napravi spil
+                    </Link>
+                ) : null}
+                
 
                 {/* Dugme koje vodi na crate deck stranicu */}
                 <div className="flex flex-wrap gap-2 md:flex-col">

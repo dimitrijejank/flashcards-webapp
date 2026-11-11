@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect,useState, useMemo } from "react";
-//import { mockDecks,mockSubjects } from "@/mock/data";
+import { useAuth } from "./AuthProvider";
 import { FullDeckDto, FullSubjectDto } from "@/shared/types";
 import Link from "next/link";
 import Card from "./Card";
@@ -18,6 +18,9 @@ export default function DeckBrowser({ subjects: subjectsProps}: Props) {
     const [loading, setLoading] = useState(false);
     const [subjects, setSubjects] = useState<FullSubjectDto[]>(subjectsProps ?? []);
     const [err,setErr] = useState<string | null>(null);
+
+    const { status, user, logout }= useAuth();
+    const isLoggedIn = status === "authenticated";
 
     useEffect(() => {
 
@@ -61,7 +64,14 @@ export default function DeckBrowser({ subjects: subjectsProps}: Props) {
         <div className="mx-auto max-w-7x1 px-4 py-8">
             <div className="flex flex-col gap-8 md:flex-row">
                 {/* Sidebar */}
-                <Sidebar search={search} setSearch={setSearch} subjectId={subjectId} setSubjectId={setSubjectId} subjects={subjects}/>
+                <Sidebar 
+                    search={search}
+                    setSearch={setSearch}
+                    subjectId={subjectId}
+                    setSubjectId={setSubjectId} 
+                    subjects={subjects} 
+                    isLoggedIn={isLoggedIn}
+                />
                 {/* Cards */}
                 <section className="flex-1">
                     {loading ? (
